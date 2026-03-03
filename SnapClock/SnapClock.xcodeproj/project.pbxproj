@@ -1,0 +1,1355 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E662ACA42F7B266300BCC04E /* SnapClock Watch App Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = E662AC842F7B265F00BCC04E /* SnapClock Watch App Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E662ACD32F7B27D500BCC04E /* SnapClockWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = E662ACB32F7B27D400BCC04E /* SnapClockWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E662AC642F7B262B00BCC04E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E662AC4E2F7B262A00BCC04E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E662AC552F7B262A00BCC04E;
+			remoteInfo = SnapClock;
+		};
+		E662AC6E2F7B262B00BCC04E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E662AC4E2F7B262A00BCC04E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E662AC552F7B262A00BCC04E;
+			remoteInfo = SnapClock;
+		};
+		E662AC912F7B266300BCC04E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E662AC4E2F7B262A00BCC04E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E662AC832F7B265F00BCC04E;
+			remoteInfo = "SnapClock Watch App Watch App";
+		};
+		E662AC9B2F7B266300BCC04E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E662AC4E2F7B262A00BCC04E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E662AC832F7B265F00BCC04E;
+			remoteInfo = "SnapClock Watch App Watch App";
+		};
+		E662ACA22F7B266300BCC04E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E662AC4E2F7B262A00BCC04E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E662AC832F7B265F00BCC04E;
+			remoteInfo = "SnapClock Watch App Watch App";
+		};
+		E662ACC02F7B27D500BCC04E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E662AC4E2F7B262A00BCC04E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E662ACB22F7B27D400BCC04E;
+			remoteInfo = "SnapClockWatch Watch App";
+		};
+		E662ACCA2F7B27D500BCC04E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E662AC4E2F7B262A00BCC04E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E662ACB22F7B27D400BCC04E;
+			remoteInfo = "SnapClockWatch Watch App";
+		};
+		E662ACD12F7B27D500BCC04E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E662AC4E2F7B262A00BCC04E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E662ACB22F7B27D400BCC04E;
+			remoteInfo = "SnapClockWatch Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E662ACA82F7B266300BCC04E /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				E662ACD32F7B27D500BCC04E /* SnapClockWatch Watch App.app in Embed Watch Content */,
+				E662ACA42F7B266300BCC04E /* SnapClock Watch App Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		E662AC562F7B262A00BCC04E /* SnapClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E662AC632F7B262B00BCC04E /* SnapClockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapClockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E662AC6D2F7B262B00BCC04E /* SnapClockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapClockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E662AC842F7B265F00BCC04E /* SnapClock Watch App Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SnapClock Watch App Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E662AC902F7B266300BCC04E /* SnapClock Watch App Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SnapClock Watch App Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E662AC9A2F7B266300BCC04E /* SnapClock Watch App Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SnapClock Watch App Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E662ACB32F7B27D400BCC04E /* SnapClockWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SnapClockWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E662ACBF2F7B27D500BCC04E /* SnapClockWatch Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SnapClockWatch Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E662ACC92F7B27D500BCC04E /* SnapClockWatch Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SnapClockWatch Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		E662AC582F7B262A00BCC04E /* SnapClock */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SnapClock;
+			sourceTree = "<group>";
+		};
+		E662AC662F7B262B00BCC04E /* SnapClockTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SnapClockTests;
+			sourceTree = "<group>";
+		};
+		E662AC702F7B262B00BCC04E /* SnapClockUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SnapClockUITests;
+			sourceTree = "<group>";
+		};
+		E662ACB42F7B27D400BCC04E /* SnapClockWatch Watch App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "SnapClockWatch Watch App";
+			sourceTree = "<group>";
+		};
+		E662ACC22F7B27D500BCC04E /* SnapClockWatch Watch AppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "SnapClockWatch Watch AppTests";
+			sourceTree = "<group>";
+		};
+		E662ACCC2F7B27D500BCC04E /* SnapClockWatch Watch AppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "SnapClockWatch Watch AppUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E662AC532F7B262A00BCC04E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E662AC602F7B262B00BCC04E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E662AC6A2F7B262B00BCC04E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E662AC812F7B265F00BCC04E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E662AC8D2F7B266300BCC04E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E662AC972F7B266300BCC04E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E662ACB02F7B27D400BCC04E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E662ACBC2F7B27D500BCC04E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E662ACC62F7B27D500BCC04E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E662AC4D2F7B262A00BCC04E = {
+			isa = PBXGroup;
+			children = (
+				E662AC582F7B262A00BCC04E /* SnapClock */,
+				E662AC662F7B262B00BCC04E /* SnapClockTests */,
+				E662AC702F7B262B00BCC04E /* SnapClockUITests */,
+				E662ACB42F7B27D400BCC04E /* SnapClockWatch Watch App */,
+				E662ACC22F7B27D500BCC04E /* SnapClockWatch Watch AppTests */,
+				E662ACCC2F7B27D500BCC04E /* SnapClockWatch Watch AppUITests */,
+				E662AC572F7B262A00BCC04E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E662AC572F7B262A00BCC04E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E662AC562F7B262A00BCC04E /* SnapClock.app */,
+				E662AC632F7B262B00BCC04E /* SnapClockTests.xctest */,
+				E662AC6D2F7B262B00BCC04E /* SnapClockUITests.xctest */,
+				E662AC842F7B265F00BCC04E /* SnapClock Watch App Watch App.app */,
+				E662AC902F7B266300BCC04E /* SnapClock Watch App Watch AppTests.xctest */,
+				E662AC9A2F7B266300BCC04E /* SnapClock Watch App Watch AppUITests.xctest */,
+				E662ACB32F7B27D400BCC04E /* SnapClockWatch Watch App.app */,
+				E662ACBF2F7B27D500BCC04E /* SnapClockWatch Watch AppTests.xctest */,
+				E662ACC92F7B27D500BCC04E /* SnapClockWatch Watch AppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E662AC552F7B262A00BCC04E /* SnapClock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E662AC772F7B262B00BCC04E /* Build configuration list for PBXNativeTarget "SnapClock" */;
+			buildPhases = (
+				E662AC522F7B262A00BCC04E /* Sources */,
+				E662AC532F7B262A00BCC04E /* Frameworks */,
+				E662AC542F7B262A00BCC04E /* Resources */,
+				E662ACA82F7B266300BCC04E /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E662ACA32F7B266300BCC04E /* PBXTargetDependency */,
+				E662ACD22F7B27D500BCC04E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E662AC582F7B262A00BCC04E /* SnapClock */,
+			);
+			name = SnapClock;
+			packageProductDependencies = (
+			);
+			productName = SnapClock;
+			productReference = E662AC562F7B262A00BCC04E /* SnapClock.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E662AC622F7B262B00BCC04E /* SnapClockTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E662AC7A2F7B262B00BCC04E /* Build configuration list for PBXNativeTarget "SnapClockTests" */;
+			buildPhases = (
+				E662AC5F2F7B262B00BCC04E /* Sources */,
+				E662AC602F7B262B00BCC04E /* Frameworks */,
+				E662AC612F7B262B00BCC04E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E662AC652F7B262B00BCC04E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E662AC662F7B262B00BCC04E /* SnapClockTests */,
+			);
+			name = SnapClockTests;
+			packageProductDependencies = (
+			);
+			productName = SnapClockTests;
+			productReference = E662AC632F7B262B00BCC04E /* SnapClockTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E662AC6C2F7B262B00BCC04E /* SnapClockUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E662AC7D2F7B262B00BCC04E /* Build configuration list for PBXNativeTarget "SnapClockUITests" */;
+			buildPhases = (
+				E662AC692F7B262B00BCC04E /* Sources */,
+				E662AC6A2F7B262B00BCC04E /* Frameworks */,
+				E662AC6B2F7B262B00BCC04E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E662AC6F2F7B262B00BCC04E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E662AC702F7B262B00BCC04E /* SnapClockUITests */,
+			);
+			name = SnapClockUITests;
+			packageProductDependencies = (
+			);
+			productName = SnapClockUITests;
+			productReference = E662AC6D2F7B262B00BCC04E /* SnapClockUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		E662AC832F7B265F00BCC04E /* SnapClock Watch App Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E662ACA52F7B266300BCC04E /* Build configuration list for PBXNativeTarget "SnapClock Watch App Watch App" */;
+			buildPhases = (
+				E662AC802F7B265F00BCC04E /* Sources */,
+				E662AC812F7B265F00BCC04E /* Frameworks */,
+				E662AC822F7B265F00BCC04E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SnapClock Watch App Watch App";
+			packageProductDependencies = (
+			);
+			productName = "SnapClock Watch App Watch App";
+			productReference = E662AC842F7B265F00BCC04E /* SnapClock Watch App Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E662AC8F2F7B266300BCC04E /* SnapClock Watch App Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E662ACA92F7B266300BCC04E /* Build configuration list for PBXNativeTarget "SnapClock Watch App Watch AppTests" */;
+			buildPhases = (
+				E662AC8C2F7B266300BCC04E /* Sources */,
+				E662AC8D2F7B266300BCC04E /* Frameworks */,
+				E662AC8E2F7B266300BCC04E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E662AC922F7B266300BCC04E /* PBXTargetDependency */,
+			);
+			name = "SnapClock Watch App Watch AppTests";
+			packageProductDependencies = (
+			);
+			productName = "SnapClock Watch App Watch AppTests";
+			productReference = E662AC902F7B266300BCC04E /* SnapClock Watch App Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E662AC992F7B266300BCC04E /* SnapClock Watch App Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E662ACAC2F7B266300BCC04E /* Build configuration list for PBXNativeTarget "SnapClock Watch App Watch AppUITests" */;
+			buildPhases = (
+				E662AC962F7B266300BCC04E /* Sources */,
+				E662AC972F7B266300BCC04E /* Frameworks */,
+				E662AC982F7B266300BCC04E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E662AC9C2F7B266300BCC04E /* PBXTargetDependency */,
+			);
+			name = "SnapClock Watch App Watch AppUITests";
+			packageProductDependencies = (
+			);
+			productName = "SnapClock Watch App Watch AppUITests";
+			productReference = E662AC9A2F7B266300BCC04E /* SnapClock Watch App Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		E662ACB22F7B27D400BCC04E /* SnapClockWatch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E662ACD42F7B27D500BCC04E /* Build configuration list for PBXNativeTarget "SnapClockWatch Watch App" */;
+			buildPhases = (
+				E662ACAF2F7B27D400BCC04E /* Sources */,
+				E662ACB02F7B27D400BCC04E /* Frameworks */,
+				E662ACB12F7B27D400BCC04E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				E662ACB42F7B27D400BCC04E /* SnapClockWatch Watch App */,
+			);
+			name = "SnapClockWatch Watch App";
+			packageProductDependencies = (
+			);
+			productName = "SnapClockWatch Watch App";
+			productReference = E662ACB32F7B27D400BCC04E /* SnapClockWatch Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E662ACBE2F7B27D500BCC04E /* SnapClockWatch Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E662ACD72F7B27D500BCC04E /* Build configuration list for PBXNativeTarget "SnapClockWatch Watch AppTests" */;
+			buildPhases = (
+				E662ACBB2F7B27D500BCC04E /* Sources */,
+				E662ACBC2F7B27D500BCC04E /* Frameworks */,
+				E662ACBD2F7B27D500BCC04E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E662ACC12F7B27D500BCC04E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E662ACC22F7B27D500BCC04E /* SnapClockWatch Watch AppTests */,
+			);
+			name = "SnapClockWatch Watch AppTests";
+			packageProductDependencies = (
+			);
+			productName = "SnapClockWatch Watch AppTests";
+			productReference = E662ACBF2F7B27D500BCC04E /* SnapClockWatch Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E662ACC82F7B27D500BCC04E /* SnapClockWatch Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E662ACDA2F7B27D500BCC04E /* Build configuration list for PBXNativeTarget "SnapClockWatch Watch AppUITests" */;
+			buildPhases = (
+				E662ACC52F7B27D500BCC04E /* Sources */,
+				E662ACC62F7B27D500BCC04E /* Frameworks */,
+				E662ACC72F7B27D500BCC04E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E662ACCB2F7B27D500BCC04E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E662ACCC2F7B27D500BCC04E /* SnapClockWatch Watch AppUITests */,
+			);
+			name = "SnapClockWatch Watch AppUITests";
+			packageProductDependencies = (
+			);
+			productName = "SnapClockWatch Watch AppUITests";
+			productReference = E662ACC92F7B27D500BCC04E /* SnapClockWatch Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E662AC4E2F7B262A00BCC04E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2620;
+				LastUpgradeCheck = 2620;
+				TargetAttributes = {
+					E662AC552F7B262A00BCC04E = {
+						CreatedOnToolsVersion = 26.2;
+					};
+					E662AC622F7B262B00BCC04E = {
+						CreatedOnToolsVersion = 26.2;
+						TestTargetID = E662AC552F7B262A00BCC04E;
+					};
+					E662AC6C2F7B262B00BCC04E = {
+						CreatedOnToolsVersion = 26.2;
+						TestTargetID = E662AC552F7B262A00BCC04E;
+					};
+					E662AC832F7B265F00BCC04E = {
+						CreatedOnToolsVersion = 26.2;
+					};
+					E662AC8F2F7B266300BCC04E = {
+						CreatedOnToolsVersion = 26.2;
+						TestTargetID = E662AC832F7B265F00BCC04E;
+					};
+					E662AC992F7B266300BCC04E = {
+						CreatedOnToolsVersion = 26.2;
+						TestTargetID = E662AC832F7B265F00BCC04E;
+					};
+					E662ACB22F7B27D400BCC04E = {
+						CreatedOnToolsVersion = 26.2;
+					};
+					E662ACBE2F7B27D500BCC04E = {
+						CreatedOnToolsVersion = 26.2;
+						TestTargetID = E662ACB22F7B27D400BCC04E;
+					};
+					E662ACC82F7B27D500BCC04E = {
+						CreatedOnToolsVersion = 26.2;
+						TestTargetID = E662ACB22F7B27D400BCC04E;
+					};
+				};
+			};
+			buildConfigurationList = E662AC512F7B262A00BCC04E /* Build configuration list for PBXProject "SnapClock" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E662AC4D2F7B262A00BCC04E;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = E662AC572F7B262A00BCC04E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E662AC552F7B262A00BCC04E /* SnapClock */,
+				E662AC622F7B262B00BCC04E /* SnapClockTests */,
+				E662AC6C2F7B262B00BCC04E /* SnapClockUITests */,
+				E662AC832F7B265F00BCC04E /* SnapClock Watch App Watch App */,
+				E662AC8F2F7B266300BCC04E /* SnapClock Watch App Watch AppTests */,
+				E662AC992F7B266300BCC04E /* SnapClock Watch App Watch AppUITests */,
+				E662ACB22F7B27D400BCC04E /* SnapClockWatch Watch App */,
+				E662ACBE2F7B27D500BCC04E /* SnapClockWatch Watch AppTests */,
+				E662ACC82F7B27D500BCC04E /* SnapClockWatch Watch AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E662AC542F7B262A00BCC04E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E662AC612F7B262B00BCC04E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E662AC6B2F7B262B00BCC04E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E662AC822F7B265F00BCC04E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E662AC8E2F7B266300BCC04E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E662AC982F7B266300BCC04E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E662ACB12F7B27D400BCC04E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E662ACBD2F7B27D500BCC04E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E662ACC72F7B27D500BCC04E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E662AC522F7B262A00BCC04E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E662AC5F2F7B262B00BCC04E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E662AC692F7B262B00BCC04E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E662AC802F7B265F00BCC04E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E662AC8C2F7B266300BCC04E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E662AC962F7B266300BCC04E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E662ACAF2F7B27D400BCC04E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E662ACBB2F7B27D500BCC04E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E662ACC52F7B27D500BCC04E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E662AC652F7B262B00BCC04E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E662AC552F7B262A00BCC04E /* SnapClock */;
+			targetProxy = E662AC642F7B262B00BCC04E /* PBXContainerItemProxy */;
+		};
+		E662AC6F2F7B262B00BCC04E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E662AC552F7B262A00BCC04E /* SnapClock */;
+			targetProxy = E662AC6E2F7B262B00BCC04E /* PBXContainerItemProxy */;
+		};
+		E662AC922F7B266300BCC04E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E662AC832F7B265F00BCC04E /* SnapClock Watch App Watch App */;
+			targetProxy = E662AC912F7B266300BCC04E /* PBXContainerItemProxy */;
+		};
+		E662AC9C2F7B266300BCC04E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E662AC832F7B265F00BCC04E /* SnapClock Watch App Watch App */;
+			targetProxy = E662AC9B2F7B266300BCC04E /* PBXContainerItemProxy */;
+		};
+		E662ACA32F7B266300BCC04E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E662AC832F7B265F00BCC04E /* SnapClock Watch App Watch App */;
+			targetProxy = E662ACA22F7B266300BCC04E /* PBXContainerItemProxy */;
+		};
+		E662ACC12F7B27D500BCC04E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E662ACB22F7B27D400BCC04E /* SnapClockWatch Watch App */;
+			targetProxy = E662ACC02F7B27D500BCC04E /* PBXContainerItemProxy */;
+		};
+		E662ACCB2F7B27D500BCC04E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E662ACB22F7B27D400BCC04E /* SnapClockWatch Watch App */;
+			targetProxy = E662ACCA2F7B27D500BCC04E /* PBXContainerItemProxy */;
+		};
+		E662ACD22F7B27D500BCC04E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E662ACB22F7B27D400BCC04E /* SnapClockWatch Watch App */;
+			targetProxy = E662ACD12F7B27D500BCC04E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E662AC752F7B262B00BCC04E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = UG9QCW355W;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E662AC762F7B262B00BCC04E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = UG9QCW355W;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E662AC782F7B262B00BCC04E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UG9QCW355W;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = uci.mswe.SnapClock;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E662AC792F7B262B00BCC04E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UG9QCW355W;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = uci.mswe.SnapClock;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E662AC7B2F7B262B00BCC04E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UG9QCW355W;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = uci.mswe.SnapClockTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SnapClock.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SnapClock";
+			};
+			name = Debug;
+		};
+		E662AC7C2F7B262B00BCC04E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UG9QCW355W;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = uci.mswe.SnapClockTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SnapClock.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SnapClock";
+			};
+			name = Release;
+		};
+		E662AC7E2F7B262B00BCC04E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UG9QCW355W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = uci.mswe.SnapClockUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SnapClock;
+			};
+			name = Debug;
+		};
+		E662AC7F2F7B262B00BCC04E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UG9QCW355W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = uci.mswe.SnapClockUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SnapClock;
+			};
+			name = Release;
+		};
+		E662ACA62F7B266300BCC04E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UG9QCW355W;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "SnapClock Watch App";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = uci.mswe.SnapClock;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = uci.mswe.SnapClock.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 26.2;
+			};
+			name = Debug;
+		};
+		E662ACA72F7B266300BCC04E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UG9QCW355W;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "SnapClock Watch App";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = uci.mswe.SnapClock;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = uci.mswe.SnapClock.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 26.2;
+			};
+			name = Release;
+		};
+		E662ACAA2F7B266300BCC04E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UG9QCW355W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "uci.mswe.SnapClock-Watch-App-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SnapClock Watch App Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SnapClock Watch App Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 26.2;
+			};
+			name = Debug;
+		};
+		E662ACAB2F7B266300BCC04E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UG9QCW355W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "uci.mswe.SnapClock-Watch-App-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SnapClock Watch App Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SnapClock Watch App Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 26.2;
+			};
+			name = Release;
+		};
+		E662ACAD2F7B266300BCC04E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UG9QCW355W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "uci.mswe.SnapClock-Watch-App-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "SnapClock Watch App Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 26.2;
+			};
+			name = Debug;
+		};
+		E662ACAE2F7B266300BCC04E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UG9QCW355W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "uci.mswe.SnapClock-Watch-App-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "SnapClock Watch App Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 26.2;
+			};
+			name = Release;
+		};
+		E662ACD52F7B27D500BCC04E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UG9QCW355W;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SnapClockWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = uci.mswe.SnapClock;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = uci.mswe.SnapClock.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 26.2;
+			};
+			name = Debug;
+		};
+		E662ACD62F7B27D500BCC04E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UG9QCW355W;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SnapClockWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = uci.mswe.SnapClock;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = uci.mswe.SnapClock.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 26.2;
+			};
+			name = Release;
+		};
+		E662ACD82F7B27D500BCC04E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UG9QCW355W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "uci.mswe.SnapClockWatch-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SnapClockWatch Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SnapClockWatch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 26.2;
+			};
+			name = Debug;
+		};
+		E662ACD92F7B27D500BCC04E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UG9QCW355W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "uci.mswe.SnapClockWatch-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SnapClockWatch Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SnapClockWatch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 26.2;
+			};
+			name = Release;
+		};
+		E662ACDB2F7B27D500BCC04E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UG9QCW355W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "uci.mswe.SnapClockWatch-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "SnapClockWatch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 26.2;
+			};
+			name = Debug;
+		};
+		E662ACDC2F7B27D500BCC04E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UG9QCW355W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "uci.mswe.SnapClockWatch-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "SnapClockWatch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 26.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E662AC512F7B262A00BCC04E /* Build configuration list for PBXProject "SnapClock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E662AC752F7B262B00BCC04E /* Debug */,
+				E662AC762F7B262B00BCC04E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E662AC772F7B262B00BCC04E /* Build configuration list for PBXNativeTarget "SnapClock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E662AC782F7B262B00BCC04E /* Debug */,
+				E662AC792F7B262B00BCC04E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E662AC7A2F7B262B00BCC04E /* Build configuration list for PBXNativeTarget "SnapClockTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E662AC7B2F7B262B00BCC04E /* Debug */,
+				E662AC7C2F7B262B00BCC04E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E662AC7D2F7B262B00BCC04E /* Build configuration list for PBXNativeTarget "SnapClockUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E662AC7E2F7B262B00BCC04E /* Debug */,
+				E662AC7F2F7B262B00BCC04E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E662ACA52F7B266300BCC04E /* Build configuration list for PBXNativeTarget "SnapClock Watch App Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E662ACA62F7B266300BCC04E /* Debug */,
+				E662ACA72F7B266300BCC04E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E662ACA92F7B266300BCC04E /* Build configuration list for PBXNativeTarget "SnapClock Watch App Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E662ACAA2F7B266300BCC04E /* Debug */,
+				E662ACAB2F7B266300BCC04E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E662ACAC2F7B266300BCC04E /* Build configuration list for PBXNativeTarget "SnapClock Watch App Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E662ACAD2F7B266300BCC04E /* Debug */,
+				E662ACAE2F7B266300BCC04E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E662ACD42F7B27D500BCC04E /* Build configuration list for PBXNativeTarget "SnapClockWatch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E662ACD52F7B27D500BCC04E /* Debug */,
+				E662ACD62F7B27D500BCC04E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E662ACD72F7B27D500BCC04E /* Build configuration list for PBXNativeTarget "SnapClockWatch Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E662ACD82F7B27D500BCC04E /* Debug */,
+				E662ACD92F7B27D500BCC04E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E662ACDA2F7B27D500BCC04E /* Build configuration list for PBXNativeTarget "SnapClockWatch Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E662ACDB2F7B27D500BCC04E /* Debug */,
+				E662ACDC2F7B27D500BCC04E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E662AC4E2F7B262A00BCC04E /* Project object */;
+}
