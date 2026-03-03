@@ -1,14 +1,14 @@
-//
-//  SnapClockApp.swift
-//  SnapClock
-//
-//  Created by 橡皮擦 on 3/30/26.
-//
-
 import SwiftUI
+import UserNotifications
 
 @main
 struct SnapClockApp: App {
+    init() {
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: [.alert, .sound, .badge, .criticalAlert]
+        ) { _, _ in }
+    }
+
     var body: some Scene {
         WindowGroup {
             ContentView()
