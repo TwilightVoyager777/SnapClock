@@ -1,5 +1,6 @@
 import Foundation
 import HealthKit
+import Observation
 
 /// 通过 HKWorkoutSession 获取连续高频心率（约 5 秒/次）。
 /// 必须先调用 start()，心率数据通过 onHeartRateSample 回调返回。
