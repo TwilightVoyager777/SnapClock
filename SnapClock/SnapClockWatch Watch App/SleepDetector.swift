@@ -22,6 +22,8 @@ enum SleepDetectorEvent {
 
 /// 纯逻辑类，无 HealthKit/CoreMotion 依赖，完全可单元测试。
 /// 调用方每 5 秒调用一次 evaluate()，检测器内部维护滑动窗口状态。
+/// 所有方法必须在主线程调用（@MainActor），与 SleepSessionManager 的调度策略一致。
+@MainActor
 final class SleepDetector {
 
     let config: SleepDetectorConfig
