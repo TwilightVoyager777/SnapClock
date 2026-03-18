@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 import UserNotifications
 
 @main
@@ -13,5 +14,6 @@ struct SnapClockApp: App {
         WindowGroup {
             HomeView()
         }
+        .modelContainer(for: NapSession.self)
     }
 }
