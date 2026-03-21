@@ -5,6 +5,11 @@ struct WatchCountdownView: View {
     let timeToSleep: TimeInterval
     let isTimedOut: Bool
 
+    private let navyBg = Color(red: 0.06, green: 0.06, blue: 0.20)
+    private let accentL = Color(red: 0.72, green: 0.67, blue: 0.96)
+    private let accentM = Color(red: 0.52, green: 0.42, blue: 0.88)
+    private let amber = Color(red: 0.96, green: 0.76, blue: 0.34)
+
     private var remainingText: String {
         let total = Int(max(0, remainingSeconds))
         let m = total / 60
@@ -20,22 +25,34 @@ struct WatchCountdownView: View {
     }
 
     var body: some View {
-        VStack(spacing: 6) {
-            Text(remainingText)
-                .font(.system(size: 40, weight: .bold, design: .rounded))
-                .monospacedDigit()
+        ZStack {
+            navyBg.ignoresSafeArea()
 
-            Text("剩余")
-                .font(.caption2)
-                .foregroundStyle(.secondary)
+            // Subtle background ring
+            Circle()
+                .stroke(accentM.opacity(0.12), lineWidth: 18)
+                .frame(width: 160, height: 160)
 
-            Divider()
+            VStack(spacing: 4) {
+                Text(remainingText)
+                    .font(.system(size: 44, weight: .thin, design: .rounded))
+                    .monospacedDigit()
+                    .foregroundStyle(.white)
 
-            Text(sleepLabel)
-                .font(.caption2)
-                .foregroundStyle(.secondary)
-                .multilineTextAlignment(.center)
+                Text("剩余")
+                    .font(.system(size: 11, weight: .regular, design: .rounded))
+                    .foregroundStyle(accentL.opacity(0.6))
+
+                Spacer(minLength: 8)
+
+                Text(sleepLabel)
+                    .font(.system(size: 11, weight: .regular, design: .rounded))
+                    .foregroundStyle(isTimedOut ? amber : .white)
+                    .multilineTextAlignment(.center)
+                    .lineLimit(2)
+            }
+            .padding(.horizontal, 10)
+            .padding(.vertical, 8)
         }
-        .padding()
     }
 }
