@@ -4,7 +4,7 @@ struct WatchSummaryView: View {
     let result: NapResult
     let onDone: () -> Void
 
-    private let navyBg = Color(red: 0.06, green: 0.06, blue: 0.20)
+    private let navyBg  = Color(red: 0.06, green: 0.06, blue: 0.20)
     private let accentL = Color(red: 0.72, green: 0.67, blue: 0.96)
     private let accentM = Color(red: 0.52, green: 0.42, blue: 0.88)
     private let gradTop = Color(red: 0.40, green: 0.28, blue: 0.78)
@@ -25,10 +25,12 @@ struct WatchSummaryView: View {
         ZStack {
             navyBg.ignoresSafeArea()
 
-            VStack(spacing: 5) {
+            VStack(spacing: 0) {
+                Spacer()
+
                 // Moon icon with lavender gradient
                 Image(systemName: "moon.stars.fill")
-                    .font(.system(size: 28, weight: .medium, design: .rounded))
+                    .font(.system(size: 30, weight: .medium, design: .rounded))
                     .foregroundStyle(
                         LinearGradient(
                             colors: [accentL, accentM],
@@ -36,27 +38,30 @@ struct WatchSummaryView: View {
                             endPoint: .bottom
                         )
                     )
-                    .padding(.top, 4)
+
+                Spacer()
 
                 // Large sleep duration
                 HStack(alignment: .firstTextBaseline, spacing: 3) {
                     Text(actualSleepText)
-                        .font(.system(size: 36, weight: .thin, design: .rounded))
+                        .font(.system(size: 40, weight: .thin, design: .rounded))
                         .monospacedDigit()
                         .foregroundStyle(.white)
                     Text("分钟")
-                        .font(.system(size: 14, weight: .regular, design: .rounded))
+                        .font(.system(size: 15, weight: .regular, design: .rounded))
                         .foregroundStyle(accentL.opacity(0.7))
                 }
 
+                Spacer()
+
                 // Sleep delay
                 Text(sleepDelayText)
-                    .font(.system(size: 11, weight: .regular, design: .rounded))
+                    .font(.system(size: 12, weight: .regular, design: .rounded))
                     .foregroundStyle(accentL.opacity(0.65))
                     .multilineTextAlignment(.center)
                     .lineLimit(2)
 
-                Spacer(minLength: 6)
+                Spacer()
 
                 // Done button
                 Button(action: onDone) {
@@ -64,7 +69,7 @@ struct WatchSummaryView: View {
                         .font(.system(size: 14, weight: .semibold, design: .rounded))
                         .foregroundStyle(.white)
                         .frame(maxWidth: .infinity)
-                        .padding(.vertical, 7)
+                        .padding(.vertical, 8)
                         .background(
                             LinearGradient(
                                 colors: [gradTop, gradBot],
@@ -76,6 +81,7 @@ struct WatchSummaryView: View {
                 }
                 .buttonStyle(.plain)
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding(.horizontal, 8)
             .padding(.bottom, 6)
         }

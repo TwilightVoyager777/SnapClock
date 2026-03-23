@@ -5,10 +5,10 @@ struct WatchCountdownView: View {
     let timeToSleep: TimeInterval
     let isTimedOut: Bool
 
-    private let navyBg = Color(red: 0.06, green: 0.06, blue: 0.20)
+    private let navyBg  = Color(red: 0.06, green: 0.06, blue: 0.20)
     private let accentL = Color(red: 0.72, green: 0.67, blue: 0.96)
     private let accentM = Color(red: 0.52, green: 0.42, blue: 0.88)
-    private let amber = Color(red: 0.96, green: 0.76, blue: 0.34)
+    private let amber   = Color(red: 0.96, green: 0.76, blue: 0.34)
 
     private var remainingText: String {
         let total = Int(max(0, remainingSeconds))
@@ -30,27 +30,31 @@ struct WatchCountdownView: View {
 
             // Subtle background ring
             Circle()
-                .stroke(accentM.opacity(0.12), lineWidth: 18)
-                .frame(width: 160, height: 160)
+                .stroke(accentM.opacity(0.12), lineWidth: 16)
+                .frame(width: 155, height: 155)
 
-            VStack(spacing: 4) {
+            VStack(spacing: 0) {
+                Spacer()
+
                 Text(remainingText)
-                    .font(.system(size: 44, weight: .thin, design: .rounded))
+                    .font(.system(size: 48, weight: .thin, design: .rounded))
                     .monospacedDigit()
                     .foregroundStyle(.white)
 
                 Text("剩余")
-                    .font(.system(size: 11, weight: .regular, design: .rounded))
+                    .font(.system(size: 12, weight: .regular, design: .rounded))
                     .foregroundStyle(accentL.opacity(0.6))
+                    .padding(.top, 2)
 
-                Spacer(minLength: 8)
+                Spacer()
 
                 Text(sleepLabel)
-                    .font(.system(size: 11, weight: .regular, design: .rounded))
+                    .font(.system(size: 12, weight: .regular, design: .rounded))
                     .foregroundStyle(isTimedOut ? amber : .white)
                     .multilineTextAlignment(.center)
                     .lineLimit(2)
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding(.horizontal, 10)
             .padding(.vertical, 8)
         }
