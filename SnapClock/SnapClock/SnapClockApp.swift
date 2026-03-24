@@ -12,7 +12,23 @@ struct SnapClockApp: App {
 
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            TabView {
+                NavigationStack {
+                    HomeView()
+                }
+                .tabItem {
+                    Label("主页", systemImage: "moon.zzz.fill")
+                }
+
+                NavigationStack {
+                    NapHistoryView()
+                }
+                .tabItem {
+                    Label("记录", systemImage: "clock.arrow.circlepath")
+                }
+            }
+            .preferredColorScheme(.dark)
+            .tint(Color(red: 0.72, green: 0.67, blue: 0.96))
         }
         .modelContainer(for: NapSession.self)
     }

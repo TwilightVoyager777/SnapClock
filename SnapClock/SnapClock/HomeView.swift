@@ -21,32 +21,29 @@ struct HomeView: View {
     private let btnBot   = Color(red: 0.25, green: 0.14, blue: 0.54)
 
     var body: some View {
-        NavigationStack {
-            ZStack {
-                LinearGradient(colors: [bgTop, bgBottom],
-                               startPoint: .top, endPoint: .bottom)
-                    .ignoresSafeArea()
+        ZStack {
+            LinearGradient(colors: [bgTop, bgBottom],
+                           startPoint: .top, endPoint: .bottom)
+                .ignoresSafeArea()
 
-                ScrollView(showsIndicators: false) {
-                    VStack(spacing: 0) {
-                        headerSection
-                        durationSection
-                        presetSection
-                        startSection
-                        statusSection
-                        Spacer(minLength: 40)
-                    }
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 0) {
+                    headerSection
+                    durationSection
+                    presetSection
+                    startSection
+                    statusSection
+                    Spacer(minLength: 40)
                 }
             }
-            .navigationDestination(isPresented: $isSessionActive) {
-                SessionActiveView(
-                    phoneSession: phoneSession,
-                    napMinutes: napMinutes,
-                    onDismiss: { isSessionActive = false }
-                )
-            }
         }
-        .preferredColorScheme(.dark)
+        .navigationDestination(isPresented: $isSessionActive) {
+            SessionActiveView(
+                phoneSession: phoneSession,
+                napMinutes: napMinutes,
+                onDismiss: { isSessionActive = false }
+            )
+        }
         .onChange(of: phoneSession.watchState) { _, newState in
             if newState == .completed {
                 isSessionActive = false
