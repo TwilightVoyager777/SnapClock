@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct WatchSummaryView: View {
+    @AppStorage("appLang") private var appLang: String = "zh"
+    private func t(_ zh: String, _ en: String) -> String { appLang == "en" ? en : zh }
+
     let result: NapResult
     let onDone: () -> Void
 
@@ -11,9 +14,11 @@ struct WatchSummaryView: View {
     private let gradBot = Color(red: 0.25, green: 0.14, blue: 0.54)
 
     private var sleepDelayText: String {
-        guard let secs = result.timeToSleepSeconds else { return "未检测到" }
+        guard let secs = result.timeToSleepSeconds else { return t("未检测到", "Not detected") }
         let minutes = Int(secs) / 60
-        return minutes > 0 ? "\(minutes) 分钟后入睡" : "不到 1 分钟入睡"
+        return minutes > 0
+            ? (appLang == "en" ? "Sleep after \(minutes) min" : "\(minutes) 分钟后入睡")
+            : t("不到 1 分钟入睡", "< 1 min to sleep")
     }
 
     private var actualSleepText: String {
@@ -47,7 +52,7 @@ struct WatchSummaryView: View {
                         .font(.system(size: 40, weight: .thin, design: .rounded))
                         .monospacedDigit()
                         .foregroundStyle(.white)
-                    Text("分钟")
+                    Text(t("分钟", "min"))
                         .font(.system(size: 15, weight: .regular, design: .rounded))
                         .foregroundStyle(accentL.opacity(0.7))
                 }
@@ -65,7 +70,7 @@ struct WatchSummaryView: View {
 
                 // Done button
                 Button(action: onDone) {
-                    Text("完成")
+                    Text(t("完成", "Done"))
                         .font(.system(size: 14, weight: .semibold, design: .rounded))
                         .foregroundStyle(.white)
                         .frame(maxWidth: .infinity)

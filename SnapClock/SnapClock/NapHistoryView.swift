@@ -2,6 +2,9 @@ import SwiftUI
 import SwiftData
 
 struct NapHistoryView: View {
+    @AppStorage("appLang") private var appLang: String = "zh"
+    private func t(_ zh: String, _ en: String) -> String { appLang == "en" ? en : zh }
+
     @Query(sort: \NapSession.napEndedAt, order: .reverse) private var sessions: [NapSession]
     @Environment(\.modelContext) private var modelContext
 
@@ -21,7 +24,7 @@ struct NapHistoryView: View {
                 list
             }
         }
-        .navigationTitle("小睡记录")
+        .navigationTitle(t("小睡记录", "Nap History"))
         .navigationBarTitleDisplayMode(.inline)
         .toolbarBackground(bgTop, for: .navigationBar)
         .toolbarBackground(.visible, for: .navigationBar)
@@ -33,10 +36,10 @@ struct NapHistoryView: View {
             Image(systemName: "moon.zzz")
                 .font(.system(size: 52))
                 .foregroundStyle(accentL.opacity(0.35))
-            Text("还没有小睡记录")
+            Text(t("还没有小睡记录", "No nap records yet"))
                 .font(.system(size: 17, design: .rounded))
                 .foregroundStyle(accentL.opacity(0.50))
-            Text("完成一次小睡后，记录将出现在这里")
+            Text(t("完成一次小睡后，记录将出现在这里", "Records will appear here after your first nap"))
                 .font(.system(size: 13, design: .rounded))
                 .foregroundStyle(accentL.opacity(0.32))
                 .multilineTextAlignment(.center)
@@ -48,7 +51,7 @@ struct NapHistoryView: View {
         ScrollView(showsIndicators: false) {
             LazyVStack(spacing: 10) {
                 ForEach(sessions) { session in
-                    SessionRowView(session: session, accentL: accentL, accentM: accentM)
+                    SessionRowView(session: session, accentL: accentL, accentM: accentM, appLang: appLang)
                 }
             }
             .padding(.horizontal, 16)
@@ -62,10 +65,13 @@ private struct SessionRowView: View {
     let session: NapSession
     let accentL: Color
     let accentM: Color
+    let appLang: String
+
+    private func t(_ zh: String, _ en: String) -> String { appLang == "en" ? en : zh }
 
     private var dateText: String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "M月d日 HH:mm"
+        formatter.dateFormat = appLang == "en" ? "MMM d, HH:mm" : "M月d日 HH:mm"
         return formatter.string(from: session.napEndedAt)
     }
 
@@ -76,11 +82,35 @@ private struct SessionRowView: View {
     }
 
     private var sleepDelayText: String {
-        if session.wasManual { return "手动计时" }
-        if session.didTimeout { return "超时自动开始" }
-        guard let secs = session.timeToSleepSeconds else { return "未检测" }
+        if session.wasManual { return t("手动计时", "Manual") }
+        if session.didTimeout { return t("超时自动开始", "Auto-started") }
+        guard let secs = session.timeToSleepSeconds else { return t("未检测", "Not detected") }
         let m = Int(secs) / 60
-        return m > 0 ? "\(m) 分钟入睡" : "不到 1 分钟入睡"
+        return m > 0 ? (appLang == "en" ? "Sleep in \(m) min" : "\(m) 分钟入睡") : t("不到 1 分钟入睡", "< 1 min to sleep")
+    }
+
+    private func qualityBadge(_ q: NapQuality) -> String {
+        if appLang == "en" {
+            switch q {
+            case .excellent: return "S"
+            case .good:      return "A"
+            case .fair:      return "B"
+            case .manual:    return "M"
+            }
+        }
+        return q.rawValue
+    }
+
+    private func qualityLabel(_ q: NapQuality) -> String {
+        if appLang == "en" {
+            switch q {
+            case .excellent: return "Deep"
+            case .good:      return "Good"
+            case .fair:      return "Fair"
+            case .manual:    return "Manual"
+            }
+        }
+        return q.label
     }
 
     var body: some View {
@@ -90,7 +120,7 @@ private struct SessionRowView: View {
                 Circle()
                     .fill(session.quality.color.opacity(0.15))
                     .frame(width: 44, height: 44)
-                Text(session.quality.rawValue)
+                Text(qualityBadge(session.quality))
                     .font(.system(size: 16, weight: .bold, design: .rounded))
                     .foregroundStyle(session.quality.color)
             }
@@ -102,7 +132,7 @@ private struct SessionRowView: View {
                         .font(.system(size: 22, weight: .thin, design: .rounded))
                         .monospacedDigit()
                         .foregroundStyle(.white)
-                    Text("分:秒")
+                    Text(t("分:秒", "m:s"))
                         .font(.system(size: 11, design: .rounded))
                         .foregroundStyle(accentL.opacity(0.45))
                         .padding(.bottom, 2)
@@ -119,7 +149,7 @@ private struct SessionRowView: View {
                 Text(dateText)
                     .font(.system(size: 11, design: .rounded))
                     .foregroundStyle(accentL.opacity(0.45))
-                Text(session.quality.label)
+                Text(qualityLabel(session.quality))
                     .font(.system(size: 11, weight: .medium, design: .rounded))
                     .foregroundStyle(session.quality.color)
             }

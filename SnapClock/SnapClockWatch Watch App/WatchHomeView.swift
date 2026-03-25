@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct WatchHomeView: View {
+    @AppStorage("appLang") private var appLang: String = "zh"
+    private func t(_ zh: String, _ en: String) -> String { appLang == "en" ? en : zh }
+
     @Binding var napMinutes: Int
     let onStart: () -> Void
     let onStartManual: () -> Void
@@ -46,7 +49,7 @@ struct WatchHomeView: View {
                         .font(.system(size: 36, weight: .thin, design: .rounded))
                         .monospacedDigit()
                         .foregroundStyle(.white)
-                    Text("分")
+                    Text(t("分", "min"))
                         .font(.system(size: 14, weight: .regular, design: .rounded))
                         .foregroundStyle(accentL.opacity(0.7))
                 }
@@ -77,7 +80,7 @@ struct WatchHomeView: View {
 
                 // Primary button
                 Button(action: onStart) {
-                    Text("开始检测")
+                    Text(t("开始检测", "Detect Sleep"))
                         .font(.system(size: 14, weight: .semibold, design: .rounded))
                         .foregroundStyle(.white)
                         .frame(maxWidth: .infinity)
@@ -95,12 +98,21 @@ struct WatchHomeView: View {
 
                 // Secondary button
                 Button(action: onStartManual) {
-                    Text("立即计时")
+                    Text(t("立即计时", "Start Timer"))
                         .font(.system(size: 12, weight: .regular, design: .rounded))
                         .foregroundStyle(accentL.opacity(0.55))
                 }
                 .buttonStyle(.plain)
                 .padding(.top, 4)
+
+                Button {
+                    appLang = appLang == "zh" ? "en" : "zh"
+                } label: {
+                    Text(appLang == "zh" ? "EN" : "中")
+                        .font(.system(size: 10, design: .rounded))
+                        .foregroundStyle(Color(red: 0.72, green: 0.67, blue: 0.96).opacity(0.50))
+                }
+                .buttonStyle(.plain)
 
                 Spacer()
             }

@@ -2,6 +2,9 @@ import SwiftUI
 import SwiftData
 
 struct HomeView: View {
+    @AppStorage("appLang") private var appLang: String = "zh"
+    private func t(_ zh: String, _ en: String) -> String { appLang == "en" ? en : zh }
+
     @State private var napMinutes: Int = 30
     @State private var phoneSession = PhoneSessionManager()
     @State private var backupManager = BackupNotificationManager()
@@ -52,11 +55,22 @@ struct HomeView: View {
                 }
             }
         }
-        .alert("Watch 未连接", isPresented: $showWatchAlert) {
-            Button("仍然开始") { startNap(force: true) }
-            Button("取消", role: .cancel) {}
+        .alert(t("Watch 未连接", "Watch Not Connected"), isPresented: $showWatchAlert) {
+            Button(t("仍然开始", "Start Anyway")) { startNap(force: true) }
+            Button(t("取消", "Cancel"), role: .cancel) {}
         } message: {
-            Text("备用通知已设置，但 Watch 端需重新连接后才能接收到指令。")
+            Text(t("备用通知已设置，但 Watch 端需重新连接后才能接收到指令。", "A backup notification has been set, but Watch needs to reconnect to receive commands."))
+        }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    appLang = appLang == "zh" ? "en" : "zh"
+                } label: {
+                    Text(appLang == "zh" ? "EN" : "中")
+                        .font(.system(size: 14, weight: .semibold, design: .rounded))
+                        .foregroundStyle(Color(red: 0.72, green: 0.67, blue: 0.96))
+                }
+            }
         }
     }
 
@@ -88,7 +102,7 @@ struct HomeView: View {
                 .font(.system(size: 34, weight: .bold, design: .rounded))
                 .foregroundStyle(.white)
 
-            Text("从入睡时开始计时")
+            Text(t("安心午睡", "Nap Peacefully"))
                 .font(.system(size: 15, design: .rounded))
                 .foregroundStyle(accentL.opacity(0.75))
         }
@@ -106,7 +120,7 @@ struct HomeView: View {
                     .monospacedDigit()
                     .contentTransition(.numericText())
                     .animation(.spring(response: 0.3), value: napMinutes)
-                Text("分")
+                Text(t("分", "min"))
                     .font(.system(size: 26, weight: .light, design: .rounded))
                     .foregroundStyle(accentL.opacity(0.65))
                     .padding(.bottom, 12)
@@ -114,7 +128,7 @@ struct HomeView: View {
 
             HStack(spacing: 28) {
                 stepperButton(icon: "minus") { if napMinutes > 5 { napMinutes -= 5 } }
-                Text("调整时长")
+                Text(t("调整时长", "Adjust Duration"))
                     .font(.system(size: 13, design: .rounded))
                     .foregroundStyle(accentL.opacity(0.45))
                 stepperButton(icon: "plus") { if napMinutes < 120 { napMinutes += 5 } }
@@ -127,7 +141,7 @@ struct HomeView: View {
 
     private var presetSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("快速选择")
+            Text(t("快速选择", "Quick Select"))
                 .font(.system(size: 13, weight: .medium, design: .rounded))
                 .foregroundStyle(accentL.opacity(0.45))
                 .padding(.leading, 4)
@@ -141,7 +155,7 @@ struct HomeView: View {
                     Button {
                         withAnimation(.spring(response: 0.3)) { napMinutes = minutes }
                     } label: {
-                        Text("\(minutes) 分")
+                        Text(appLang == "en" ? "\(minutes) min" : "\(minutes) 分")
                             .font(.system(size: 15,
                                           weight: selected ? .semibold : .regular,
                                           design: .rounded))
@@ -176,7 +190,7 @@ struct HomeView: View {
             HStack(spacing: 10) {
                 Image(systemName: "moon.zzz.fill")
                     .font(.system(size: 17))
-                Text("开始小睡")
+                Text(t("开始小睡", "Start Nap"))
                     .font(.system(size: 18, weight: .semibold, design: .rounded))
             }
             .foregroundStyle(.white)
@@ -203,7 +217,7 @@ struct HomeView: View {
                           ? Color(red: 0.35, green: 0.85, blue: 0.55)
                           : Color(red: 0.85, green: 0.40, blue: 0.40))
                     .frame(width: 7, height: 7)
-                Text(phoneSession.isWatchReachable ? "Apple Watch 已连接" : "Watch 未连接")
+                Text(phoneSession.isWatchReachable ? t("Apple Watch 已连接", "Apple Watch Connected") : t("Watch 未连接", "Watch Disconnected"))
                     .font(.system(size: 13, design: .rounded))
                     .foregroundStyle(accentL.opacity(0.50))
             }
@@ -213,7 +227,7 @@ struct HomeView: View {
                 HStack(spacing: 5) {
                     Image(systemName: "clock.arrow.circlepath")
                         .font(.system(size: 11))
-                    Text("上次睡了 \(mins) 分钟")
+                    Text(appLang == "en" ? "Last nap: \(mins) min" : "上次睡了 \(mins) 分钟")
                         .font(.system(size: 13, design: .rounded))
                 }
                 .foregroundStyle(accentL.opacity(0.38))

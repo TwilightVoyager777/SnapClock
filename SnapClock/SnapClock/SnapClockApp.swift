@@ -4,6 +4,8 @@ import UserNotifications
 
 @main
 struct SnapClockApp: App {
+    @AppStorage("appLang") private var appLang: String = "zh"
+
     init() {
         UNUserNotificationCenter.current().requestAuthorization(
             options: [.alert, .sound, .badge]
@@ -17,14 +19,14 @@ struct SnapClockApp: App {
                     HomeView()
                 }
                 .tabItem {
-                    Label("主页", systemImage: "moon.zzz.fill")
+                    Label(appLang == "en" ? "Home" : "主页", systemImage: "moon.zzz.fill")
                 }
 
                 NavigationStack {
                     NapHistoryView()
                 }
                 .tabItem {
-                    Label("记录", systemImage: "clock.arrow.circlepath")
+                    Label(appLang == "en" ? "History" : "记录", systemImage: "clock.arrow.circlepath")
                 }
             }
             .preferredColorScheme(.dark)

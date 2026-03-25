@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct WatchCountdownView: View {
+    @AppStorage("appLang") private var appLang: String = "zh"
+    private func t(_ zh: String, _ en: String) -> String { appLang == "en" ? en : zh }
+
     let remainingSeconds: TimeInterval
     let timeToSleep: TimeInterval
     let isTimedOut: Bool
@@ -18,10 +21,12 @@ struct WatchCountdownView: View {
     }
 
     private var sleepLabel: String {
-        if isTimedOut { return "超时自动计时" }
+        if isTimedOut { return t("超时自动计时", "Auto-timed") }
         let minutes = Int(timeToSleep) / 60
         let seconds = Int(timeToSleep) % 60
-        return String(format: "%d分%02d秒后入睡", minutes, seconds)
+        return appLang == "en"
+            ? String(format: "Sleep after %dm%02ds", minutes, seconds)
+            : String(format: "%d分%02d秒后入睡", minutes, seconds)
     }
 
     var body: some View {
@@ -41,7 +46,7 @@ struct WatchCountdownView: View {
                     .monospacedDigit()
                     .foregroundStyle(.white)
 
-                Text("剩余")
+                Text(t("剩余", "Left"))
                     .font(.system(size: 12, weight: .regular, design: .rounded))
                     .foregroundStyle(accentL.opacity(0.6))
                     .padding(.top, 2)
