@@ -28,6 +28,9 @@ struct SnapClockWatch_Watch_AppApp: App {
                     connectivity.cancelRequested = false
                 }
             }
+            .onChange(of: sessionManager.state) { _, newState in
+                connectivity.sendStateUpdate(newState)
+            }
             .onAppear {
                 // 会话结束后将结果发回 iPhone
                 sessionManager.onSessionCompleted = { result in

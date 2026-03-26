@@ -57,7 +57,7 @@ struct WatchHomeView: View {
                 // Stepper row
                 HStack(spacing: 20) {
                     Button {
-                        if napMinutes > 5 { napMinutes -= 5 }
+                        if napMinutes > 1 { napMinutes = max(1, napMinutes - 5) }
                     } label: {
                         Image(systemName: "minus.circle.fill")
                             .font(.system(size: 26))
