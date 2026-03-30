@@ -5,7 +5,7 @@ import UserNotifications
 struct SnapClockApp: App {
     init() {
         UNUserNotificationCenter.current().requestAuthorization(
-            options: [.alert, .sound, .badge, .criticalAlert]
+            options: [.alert, .sound, .badge]
         ) { _, _ in }
     }
 
