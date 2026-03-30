@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSHealthShareUsageDescription</key>
+	<string>SnapClock 显示您的睡眠会话心率摘要</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>SnapClock 保存您的小睡会话到健康 App</string>
+</dict>
+</plist>

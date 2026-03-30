@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSHealthShareUsageDescription</key>
+	<string>SnapClock 需要读取心率数据来判断您何时入睡</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>SnapClock 需要记录一次静默锻炼会话以获取实时心率</string>
+	<key>NSMotionUsageDescription</key>
+	<string>SnapClock 需要加速度计数据来判断您的身体是否静止</string>
+</dict>
+</plist>
