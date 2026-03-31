@@ -11,7 +11,7 @@ struct SnapClockApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
         }
     }
 }
