@@ -2,7 +2,7 @@ import Foundation
 
 // MARK: - 会话配置（iPhone 发给 Watch）
 
-struct NapConfig: Codable {
+struct NapConfig: Codable, Equatable {
     let napDurationSeconds: TimeInterval   // 用户设定的小睡时长（秒）
     let timeoutSeconds: TimeInterval       // 超时保护时长，默认 2700（45分钟）
     let startedAt: Date                    // iPhone 侧会话开始时间戳
@@ -17,7 +17,7 @@ struct NapConfig: Codable {
 
 // MARK: - 会话结果（Watch 发回 iPhone）
 
-struct NapResult: Codable {
+struct NapResult: Codable, Equatable {
     let sessionStartedAt: Date     // 会话开始（用户按下开始）
     let sleepDetectedAt: Date?     // 入睡时刻（nil = 超时未检测到，或手动）
     let napEndedAt: Date           // 实际唤醒时刻
