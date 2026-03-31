@@ -41,50 +41,70 @@ struct SnapClockWatch_Watch_AppApp: App {
 struct WatchRootView: View {
     @Bindable var sessionManager: SleepSessionManager
     @Binding var napMinutes: Int
+    @State private var sessionTask: Task<Void, Never>?
 
     var body: some View {
-        switch sessionManager.state {
-        case .idle:
-            WatchHomeView(
-                napMinutes: $napMinutes,
-                onStart: { Task { await startSession(manual: false) } },
-                onStartManual: { Task { await startSession(manual: true) } }
-            )
+        Group {
+            switch sessionManager.state {
+            case .idle:
+                WatchHomeView(
+                    napMinutes: $napMinutes,
+                    onStart: {
+                        sessionTask = Task { await startDetectingSession() }
+                    },
+                    onStartManual: {
+                        let config = NapConfig(
+                            napDurationSeconds: Double(napMinutes) * 60,
+                            timeoutSeconds: NapConfig.defaultTimeout,
+                            startedAt: Date()
+                        )
+                        sessionManager.startManualSession(config: config)
+                    }
+                )
 
-        case .monitoring:
-            WatchMonitoringView(
-                waitingSeconds: sessionManager.timeToSleepSeconds,
-                onCancel: { sessionManager.cancelSession() },
-                onManual: { sessionManager.startManually() }
-            )
+            case .monitoring:
+                WatchMonitoringView(
+                    waitingSeconds: sessionManager.timeToSleepSeconds,
+                    onCancel: { sessionManager.cancelSession() },
+                    onManual: { sessionManager.startManually() }
+                )
 
-        case .sleeping, .timedOut:
-            WatchCountdownView(
-                remainingSeconds: sessionManager.remainingSeconds,
-                timeToSleep: sessionManager.timeToSleepSeconds,
-                isTimedOut: sessionManager.state == .timedOut
-            )
+            case .sleeping, .timedOut:
+                WatchCountdownView(
+                    remainingSeconds: sessionManager.remainingSeconds,
+                    timeToSleep: sessionManager.timeToSleepSeconds,
+                    isTimedOut: sessionManager.state == .timedOut
+                )
 
-        case .completed:
-            if let result = sessionManager.lastResult {
-                WatchSummaryView(result: result) {
-                    sessionManager.state = .idle
+            case .completed:
+                if let result = sessionManager.lastResult {
+                    WatchSummaryView(result: result) {
+                        sessionManager.state = .idle
+                    }
+                } else {
+                    VStack(spacing: 8) {
+                        Text("小睡完成")
+                            .font(.headline)
+                        Button("返回") {
+                            sessionManager.state = .idle
+                        }
+                        .buttonStyle(.borderedProminent)
+                    }
                 }
             }
         }
+        .onDisappear {
+            sessionTask?.cancel()
+            sessionTask = nil
+        }
     }
 
-    private func startSession(manual: Bool) async {
+    private func startDetectingSession() async {
         let config = NapConfig(
             napDurationSeconds: Double(napMinutes) * 60,
             timeoutSeconds: NapConfig.defaultTimeout,
             startedAt: Date()
         )
-        if manual {
-            try? await sessionManager.startSession(config: config)
-            sessionManager.startManually()
-        } else {
-            try? await sessionManager.startSession(config: config)
-        }
+        try? await sessionManager.startSession(config: config)
     }
 }

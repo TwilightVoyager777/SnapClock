@@ -116,6 +116,16 @@ final class SleepSessionManager {
         state = .idle
     }
 
+    /// 直接开始计时，跳过传感器检测（适用于首页"立即计时"按钮）
+    func startManualSession(config: NapConfig) {
+        guard state == .idle else { return }
+        self.config = config
+        let now = Date()
+        sessionStartedAt = now
+        sleepDetectedAt = now
+        startCountdown(from: now, wasManual: true, didTimeout: false)
+    }
+
     // MARK: - Private
 
     private func evaluateOnce() {
