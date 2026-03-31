@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 struct HomeView: View {
     @State private var napMinutes: Int = 30
@@ -6,6 +7,8 @@ struct HomeView: View {
     @State private var backupManager = BackupNotificationManager()
     @State private var isSessionActive = false
     @State private var showWatchAlert = false
+    @Environment(\.modelContext) private var modelContext
+    @Query(sort: \NapSession.napEndedAt, order: .reverse) private var sessions: [NapSession]
 
     private let presets = [15, 20, 25, 30, 45, 60]
 
@@ -63,6 +66,19 @@ struct HomeView: View {
                         .foregroundStyle(.secondary)
                 }
 
+                if let last = sessions.first {
+                    Divider()
+                    VStack(spacing: 4) {
+                        Text("上次小睡")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                        let mins = Int(last.actualSleepSeconds) / 60
+                        Text("睡了 \(mins) 分钟")
+                            .font(.subheadline.bold())
+                    }
+                    .padding(.bottom, 8)
+                }
+
                 Spacer()
             }
             .navigationDestination(isPresented: $isSessionActive) {
@@ -76,6 +92,10 @@ struct HomeView: View {
         .onChange(of: phoneSession.watchState) { _, newState in
             if newState == .completed {
                 isSessionActive = false
+                if let result = phoneSession.latestResult {
+                    let session = NapSession(from: result)
+                    modelContext.insert(session)
+                }
             }
         }
         .alert("Watch 未连接", isPresented: $showWatchAlert) {
