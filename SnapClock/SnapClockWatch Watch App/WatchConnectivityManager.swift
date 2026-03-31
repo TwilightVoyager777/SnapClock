@@ -8,7 +8,9 @@ import Observation
 @Observable
 final class WatchConnectivityManager: NSObject, WCSessionDelegate {
 
+    /// 收到 iPhone 发来的 startNap 配置。消费后调用方需置为 nil，防止重复触发会话。
     var receivedConfig: NapConfig?
+    /// 收到 iPhone 发来的 cancelNap 指令。消费后调用方需置为 false，防止状态残留。
     var cancelRequested = false
 
     private let session = WCSession.default
@@ -24,7 +26,10 @@ final class WatchConnectivityManager: NSObject, WCSessionDelegate {
     // MARK: - 发送结果回 iPhone
 
     func sendResult(_ result: NapResult) {
-        guard let data = try? JSONEncoder().encode(result) else { return }
+        guard let data = try? JSONEncoder().encode(result) else {
+            assertionFailure("NapResult encoding failed — check Codable conformance")
+            return
+        }
         if session.isReachable {
             session.sendMessage([WCMessageKey.napResult: data], replyHandler: nil)
         } else {

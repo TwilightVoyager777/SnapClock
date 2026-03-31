@@ -24,7 +24,10 @@ final class PhoneSessionManager: NSObject, WCSessionDelegate {
     // MARK: - 发送指令给 Watch
 
     func sendStartNap(config: NapConfig) {
-        guard let data = try? JSONEncoder().encode(config) else { return }
+        guard let data = try? JSONEncoder().encode(config) else {
+            assertionFailure("NapConfig encoding failed — check Codable conformance")
+            return
+        }
         if session.isReachable {
             session.sendMessage([WCMessageKey.startNap: data], replyHandler: nil)
         } else {
