@@ -5,7 +5,10 @@ struct SessionSummaryView: View {
 
     private var sleepDelayText: String {
         if result.wasManual { return "手动开始计时" }
-        if result.didTimeout { return "45分钟未检测到入睡，自动开始" }
+        if result.didTimeout {
+            let mins = Int(NapConfig.defaultTimeout / 60)
+            return "\(mins)分钟未检测到入睡，自动开始"
+        }
         guard let secs = result.timeToSleepSeconds else { return "未知" }
         let m = Int(secs) / 60
         let s = Int(secs) % 60
