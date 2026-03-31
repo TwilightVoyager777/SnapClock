@@ -4,6 +4,8 @@ import Observation
 
 /// 编排一次完整小睡会话：
 /// 启动传感器 → 检测入睡 → 倒计时 → 震动唤醒 → 返回结果
+///
+/// 异常处理：如果 startSession 抛出或任务被取消，调用方应调用 cancelSession() 恢复 idle 状态。
 @MainActor
 @Observable
 final class SleepSessionManager {
@@ -30,8 +32,12 @@ final class SleepSessionManager {
     private var sleepDetectedAt: Date?
     private var countdownTimer: Timer?
     private var monitoringTimer: Timer?
+    private var displayTimer: Timer?           // 每秒更新 timeToSleepSeconds
     private var baselineHRSamples: [Double] = []
     private var isCollectingBaseline = false
+
+    /// 成人静息心率合理默认值（当 30 秒基准采集无数据时使用）
+    private static let defaultBaselineHR: Double = 70
 
     // MARK: - Init
 
@@ -52,38 +58,53 @@ final class SleepSessionManager {
         sleepDetectedAt = nil
         state = .monitoring
 
-        try await hrMonitor.requestAuthorization()
-        try await hrMonitor.start()
-        motionMonitor.start()
+        // 任务取消时确保传感器被停止
+        try await withTaskCancellationHandler {
+            try await hrMonitor.requestAuthorization()
+            try await hrMonitor.start()
+            motionMonitor.start()
 
-        // 收集 30 秒基准心率
-        isCollectingBaseline = true
-        baselineHRSamples = []
-        hrMonitor.onHeartRateSample = { [weak self] bpm in
-            guard let self, self.isCollectingBaseline else { return }
-            self.baselineHRSamples.append(bpm)
-        }
+            // 收集 30 秒基准心率
+            isCollectingBaseline = true
+            baselineHRSamples = []
+            hrMonitor.onHeartRateSample = { [weak self] bpm in
+                guard let self, self.isCollectingBaseline else { return }
+                self.baselineHRSamples.append(bpm)
+            }
 
-        try await Task.sleep(for: .seconds(30))
-        let baseline = baselineHRSamples.isEmpty ? 70 : baselineHRSamples.reduce(0, +) / Double(baselineHRSamples.count)
-        isCollectingBaseline = false
+            try await Task.sleep(for: .seconds(30))
+            let baseline = baselineHRSamples.isEmpty
+                ? Self.defaultBaselineHR
+                : baselineHRSamples.reduce(0, +) / Double(baselineHRSamples.count)
+            isCollectingBaseline = false
 
-        detector.startSession(baselineHR: baseline, at: now)
+            detector.startSession(baselineHR: baseline, at: now)
 
-        // 启动监测定时器（每 5 秒 evaluate 一次）
-        monitoringTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [weak self] _ in
-            self?.evaluateOnce()
-        }
+            // 启动监测定时器（每 5 秒 evaluate 一次）
+            monitoringTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [weak self] _ in
+                self?.evaluateOnce()
+            }
 
-        // 更新等待时长的显示定时器（每秒）
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] t in
-            guard let self, self.state == .monitoring else { t.invalidate(); return }
-            self.timeToSleepSeconds = Date().timeIntervalSince(self.sessionStartedAt ?? Date())
+            // 更新等待时长的显示定时器（每秒），存储以便 stopAll 能正确清理
+            displayTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+                guard let self, self.state == .monitoring else {
+                    self?.displayTimer?.invalidate()
+                    self?.displayTimer = nil
+                    return
+                }
+                self.timeToSleepSeconds = Date().timeIntervalSince(self.sessionStartedAt!)
+            }
+        } onCancel: {
+            // 取消时在主线程清理（@MainActor 保证）
+            Task { @MainActor [weak self] in
+                self?.stopAll()
+            }
         }
     }
 
     func startManually() {
         monitoringTimer?.invalidate()
+        hrMonitor.stop()
         motionMonitor.stop()
         let now = Date()
         sleepDetectedAt = now
@@ -152,6 +173,8 @@ final class SleepSessionManager {
     private func stopAll() {
         monitoringTimer?.invalidate()
         countdownTimer?.invalidate()
+        displayTimer?.invalidate()
+        displayTimer = nil
         hrMonitor.stop()
         motionMonitor.stop()
     }

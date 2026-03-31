@@ -2,6 +2,7 @@ import WatchKit
 import Foundation
 
 /// 播放渐强震动序列唤醒用户（共 3 次，间隔 3 秒）
+@MainActor
 final class HapticManager {
 
     func playWakeUp() {
