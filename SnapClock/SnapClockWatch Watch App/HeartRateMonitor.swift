@@ -19,6 +19,7 @@ final class HeartRateMonitor: NSObject {
     private var workoutBuilder: HKLiveWorkoutBuilder?
     private var anchoredQuery: HKAnchoredObjectQuery?
     private var anchor: HKQueryAnchor?
+    private var sessionStartDate: Date = .distantPast
 
     private let heartRateType = HKQuantityType(.heartRate)
     private let bpmUnit = HKUnit.count().unitDivided(by: .minute())
@@ -54,8 +55,11 @@ final class HeartRateMonitor: NSObject {
         session.startActivity(with: Date())
         try await builder.beginCollection(at: Date())
 
+        sessionStartDate = Date()
         startAnchoredQuery()
-        isRunning = true
+        DispatchQueue.main.async { [weak self] in
+            self?.isRunning = true
+        }
     }
 
     func stop() {
@@ -65,15 +69,23 @@ final class HeartRateMonitor: NSObject {
         workoutBuilder?.endCollection(withEnd: Date()) { _, _ in }
         workoutSession = nil
         workoutBuilder = nil
-        isRunning = false
+        DispatchQueue.main.async { [weak self] in
+            self?.isRunning = false
+        }
     }
 
     // MARK: - Anchored Query
 
     private func startAnchoredQuery() {
+        let predicate = HKQuery.predicateForSamples(
+            withStart: sessionStartDate,
+            end: nil,
+            options: .strictStartDate
+        )
+
         let query = HKAnchoredObjectQuery(
             type: heartRateType,
-            predicate: nil,
+            predicate: predicate,
             anchor: anchor,
             limit: HKObjectQueryNoLimit
         ) { [weak self] _, samples, _, newAnchor, _ in
