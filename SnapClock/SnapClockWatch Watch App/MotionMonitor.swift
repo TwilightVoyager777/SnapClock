@@ -1,5 +1,6 @@
 import Foundation
 import CoreMotion
+import Observation
 
 /// 采集加速度计数据，每 5 秒计算三轴合力的标准差，判断身体是否静止。
 /// standardDeviation < 0.02g 视为静止。
