@@ -127,7 +127,7 @@ struct HomeView: View {
             }
 
             HStack(spacing: 28) {
-                stepperButton(icon: "minus") { if napMinutes > 5 { napMinutes -= 5 } }
+                stepperButton(icon: "minus") { if napMinutes > 1 { napMinutes = max(1, napMinutes - 5) } }
                 Text(t("调整时长", "Adjust Duration"))
                     .font(.system(size: 13, design: .rounded))
                     .foregroundStyle(accentL.opacity(0.45))

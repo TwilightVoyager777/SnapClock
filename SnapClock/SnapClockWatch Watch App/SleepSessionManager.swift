@@ -30,6 +30,7 @@ final class SleepSessionManager {
     private var config: NapConfig?
     private var sessionStartedAt: Date?
     private var sleepDetectedAt: Date?
+    private var countdownEndDate: Date?
     private var countdownTimer: Timer?
     private var monitoringTimer: Timer?
     private var displayTimer: Timer?           // 每秒更新 timeToSleepSeconds
@@ -104,8 +105,7 @@ final class SleepSessionManager {
 
     func startManually() {
         monitoringTimer?.invalidate()
-        hrMonitor.stop()
-        motionMonitor.stop()
+        // 保留 hrMonitor（HKWorkoutSession）以维持 background execution
         let now = Date()
         sleepDetectedAt = now
         startCountdown(from: now, wasManual: true, didTimeout: false)
@@ -152,13 +152,18 @@ final class SleepSessionManager {
         guard let config else { return }
         state = didTimeout ? .timedOut : .sleeping
         remainingSeconds = config.napDurationSeconds
+        let endDate = sleepStart.addingTimeInterval(config.napDurationSeconds)
+        countdownEndDate = endDate
 
         countdownTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
             guard let self else { return }
-            self.remainingSeconds -= 1
-            if self.remainingSeconds <= 0 {
+            let remaining = endDate.timeIntervalSinceNow
+            if remaining <= 0 {
+                self.remainingSeconds = 0
                 self.countdownTimer?.invalidate()
                 self.finishSession(wasManual: wasManual, didTimeout: didTimeout)
+            } else {
+                self.remainingSeconds = remaining
             }
         }
     }

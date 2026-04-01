@@ -166,3 +166,56 @@ private struct SessionRowView: View {
         )
     }
 }
+
+// MARK: - Preview
+
+#Preview {
+    let config = ModelConfiguration(isStoredInMemoryOnly: true)
+    let container = try! ModelContainer(for: NapSession.self, configurations: config)
+
+    let now = Date()
+    let sampleSessions: [NapSession] = [
+        // 深度：7 分钟入睡，睡了 28 分钟
+        NapSession(from: NapResult(
+            sessionStartedAt: now - 3600,
+            sleepDetectedAt: now - 3600 + 420,
+            napEndedAt: now - 3600 + 420 + 1680,
+            wasManual: false, didTimeout: false
+        )),
+        // 良好：13 分钟入睡，睡了 25 分钟
+        NapSession(from: NapResult(
+            sessionStartedAt: now - 86400,
+            sleepDetectedAt: now - 86400 + 780,
+            napEndedAt: now - 86400 + 780 + 1500,
+            wasManual: false, didTimeout: false
+        )),
+        // 手动：直接计时，睡了 20 分钟
+        NapSession(from: NapResult(
+            sessionStartedAt: now - 172800,
+            sleepDetectedAt: nil,
+            napEndedAt: now - 172800 + 1200,
+            wasManual: true, didTimeout: false
+        )),
+        // 一般：超时后开始，睡了 30 分钟
+        NapSession(from: NapResult(
+            sessionStartedAt: now - 259200,
+            sleepDetectedAt: nil,
+            napEndedAt: now - 259200 + 1800,
+            wasManual: false, didTimeout: true
+        )),
+        // 深度：4 分钟入睡，睡了 15 分钟
+        NapSession(from: NapResult(
+            sessionStartedAt: now - 345600,
+            sleepDetectedAt: now - 345600 + 240,
+            napEndedAt: now - 345600 + 240 + 900,
+            wasManual: false, didTimeout: false
+        )),
+    ]
+    sampleSessions.forEach { container.mainContext.insert($0) }
+
+    return NavigationStack {
+        NapHistoryView()
+    }
+    .modelContainer(container)
+    .preferredColorScheme(.dark)
+}
