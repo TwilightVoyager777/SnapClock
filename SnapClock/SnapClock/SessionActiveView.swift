@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct SessionActiveView: View {
+    @AppStorage("appLang") private var appLang: String = "zh"
+    private func t(_ zh: String, _ en: String) -> String { appLang == "en" ? en : zh }
+
     @Bindable var phoneSession: PhoneSessionManager
     let napMinutes: Int
     let onDismiss: () -> Void
@@ -35,11 +38,11 @@ struct SessionActiveView: View {
 
     private var statusText: String {
         switch phoneSession.watchState {
-        case .monitoring: return "Watch 正在检测入睡..."
-        case .sleeping:   return "已入睡，倒计时中"
-        case .timedOut:   return "超时自动计时中"
-        case .completed:  return "小睡结束"
-        case .idle:       return "等待 Watch 连接"
+        case .monitoring: return t("Watch 正在检测入睡...", "Watch detecting sleep...")
+        case .sleeping:   return t("已入睡，倒计时中", "Sleeping, countdown started")
+        case .timedOut:   return t("超时自动计时中", "Timed out, counting down")
+        case .completed:  return t("小睡结束", "Nap complete")
+        case .idle:       return t("等待 Watch 连接", "Waiting for Watch")
         }
     }
 
@@ -92,7 +95,7 @@ struct SessionActiveView: View {
 
                 Spacer().frame(height: 8)
 
-                Text("目标：\(napMinutes) 分钟")
+                Text(appLang == "en" ? "Goal: \(napMinutes) min" : "目标：\(napMinutes) 分钟")
                     .font(.system(size: 16, design: .rounded))
                     .foregroundStyle(accentL.opacity(0.50))
 
@@ -106,7 +109,7 @@ struct SessionActiveView: View {
                         HStack(spacing: 8) {
                             Image(systemName: "moon.stars.fill")
                                 .font(.system(size: 16))
-                            Text("查看本次记录")
+                            Text(t("查看本次记录", "View Summary"))
                                 .font(.system(size: 16, weight: .semibold, design: .rounded))
                         }
                         .foregroundStyle(.white)
@@ -124,7 +127,7 @@ struct SessionActiveView: View {
 
                 Spacer()
 
-                Button("提前结束", role: .destructive) {
+                Button(t("提前结束", "End Early"), role: .destructive) {
                     phoneSession.sendCancelNap()
                     backupManager.cancel()
                     onDismiss()
@@ -135,7 +138,7 @@ struct SessionActiveView: View {
             }
             .padding(.horizontal, 24)
         }
-        .navigationTitle("小睡进行中")
+        .navigationTitle(t("小睡进行中", "Nap In Progress"))
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .toolbarBackground(bgTop, for: .navigationBar)

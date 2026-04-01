@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct WatchMonitoringView: View {
+    @AppStorage("appLang") private var appLang: String = "zh"
+    private func t(_ zh: String, _ en: String) -> String { appLang == "en" ? en : zh }
+
     let waitingSeconds: TimeInterval
     let onCancel: () -> Void
     let onManual: () -> Void
@@ -39,7 +42,7 @@ struct WatchMonitoringView: View {
                         .frame(width: 38, height: 38)
                 }
 
-                Text("检测入睡中")
+                Text(t("检测入睡中", "Detecting Sleep"))
                     .font(.system(size: 15, weight: .semibold, design: .rounded))
                     .foregroundStyle(.white)
                     .padding(.top, 8)
@@ -56,7 +59,7 @@ struct WatchMonitoringView: View {
                 // Bottom buttons
                 HStack(spacing: 10) {
                     Button(action: onManual) {
-                        Text("手动")
+                        Text(t("手动", "Manual"))
                             .font(.system(size: 12, weight: .semibold, design: .rounded))
                             .foregroundStyle(.white)
                             .frame(maxWidth: .infinity)
@@ -73,7 +76,7 @@ struct WatchMonitoringView: View {
                     .buttonStyle(.plain)
 
                     Button(action: onCancel) {
-                        Text("取消")
+                        Text(t("取消", "Cancel"))
                             .font(.system(size: 12, weight: .regular, design: .rounded))
                             .foregroundStyle(Color.red.opacity(0.85))
                             .frame(maxWidth: .infinity)

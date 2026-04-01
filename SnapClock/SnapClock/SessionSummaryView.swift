@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct SessionSummaryView: View {
+    @AppStorage("appLang") private var appLang: String = "zh"
+    private func t(_ zh: String, _ en: String) -> String { appLang == "en" ? en : zh }
+
     let result: NapResult
 
     private let bgTop    = Color(red: 0.06, green: 0.06, blue: 0.20)
@@ -9,15 +12,17 @@ struct SessionSummaryView: View {
     private let accentM  = Color(red: 0.52, green: 0.42, blue: 0.88)
 
     private var sleepDelayText: String {
-        if result.wasManual { return "手动开始计时" }
+        if result.wasManual { return t("手动开始计时", "Manual start") }
         if result.didTimeout {
             let mins = Int(NapConfig.defaultTimeout / 60)
-            return "\(mins) 分钟未检测到入睡，自动开始"
+            return appLang == "en" ? "No sleep detected after \(mins) min, auto-started" : "\(mins) 分钟未检测到入睡，自动开始"
         }
-        guard let secs = result.timeToSleepSeconds else { return "未知" }
+        guard let secs = result.timeToSleepSeconds else { return t("未知", "Unknown") }
         let m = Int(secs) / 60
         let s = Int(secs) % 60
-        return m > 0 ? "\(m) 分 \(s) 秒后入睡" : "\(s) 秒后入睡"
+        return m > 0
+            ? (appLang == "en" ? "Fell asleep after \(m)m \(s)s" : "\(m) 分 \(s) 秒后入睡")
+            : (appLang == "en" ? "Fell asleep after \(s)s" : "\(s) 秒后入睡")
     }
 
     private var actualSleepText: String {
@@ -45,7 +50,7 @@ struct SessionSummaryView: View {
 
                 // Main stat
                 VStack(spacing: 5) {
-                    Text("实际睡眠")
+                    Text(t("实际睡眠", "Actual Sleep"))
                         .font(.system(size: 13, weight: .medium, design: .rounded))
                         .foregroundStyle(accentL.opacity(0.50))
                         .tracking(1.5)
@@ -55,7 +60,7 @@ struct SessionSummaryView: View {
                         .foregroundStyle(.white)
                         .monospacedDigit()
 
-                    Text("分 : 秒")
+                    Text(t("分 : 秒", "min : sec"))
                         .font(.system(size: 12, design: .rounded))
                         .foregroundStyle(accentL.opacity(0.38))
                 }
@@ -63,7 +68,7 @@ struct SessionSummaryView: View {
 
                 // Sleep delay card
                 VStack(spacing: 7) {
-                    Text("入睡情况")
+                    Text(t("入睡情况", "Sleep Detection"))
                         .font(.system(size: 12, weight: .medium, design: .rounded))
                         .foregroundStyle(accentL.opacity(0.48))
                         .tracking(1.2)
@@ -91,7 +96,7 @@ struct SessionSummaryView: View {
                 Spacer()
             }
         }
-        .navigationTitle("本次小睡")
+        .navigationTitle(t("本次小睡", "This Nap"))
         .navigationBarTitleDisplayMode(.inline)
         .toolbarBackground(bgTop, for: .navigationBar)
         .toolbarBackground(.visible, for: .navigationBar)
