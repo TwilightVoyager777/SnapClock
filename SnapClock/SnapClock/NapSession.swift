@@ -54,6 +54,20 @@ final class NapSession {
         return .fair
     }
 
+    /// 0-100 sleep quality score (deterministic, based on time to fall asleep)
+    var qualityScore: Int {
+        if wasManual { return 60 }
+        if didTimeout { return 38 }
+        guard let secs = timeToSleepSeconds else { return 38 }
+        let penalty = max(0.0, secs / 60.0 - 3.0) * 2.0
+        return max(30, min(95, Int(90.0 - penalty)))
+    }
+
+    /// Total session duration from start button press to wake
+    var totalSessionSeconds: TimeInterval {
+        napEndedAt.timeIntervalSince(sessionStartedAt)
+    }
+
     init(from result: NapResult) {
         self.id = UUID()
         self.sessionStartedAt = result.sessionStartedAt

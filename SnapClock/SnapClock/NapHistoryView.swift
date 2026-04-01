@@ -51,7 +51,12 @@ struct NapHistoryView: View {
         ScrollView(showsIndicators: false) {
             LazyVStack(spacing: 10) {
                 ForEach(sessions) { session in
-                    SessionRowView(session: session, accentL: accentL, accentM: accentM, appLang: appLang)
+                    NavigationLink {
+                        NapDetailView(session: session)
+                    } label: {
+                        SessionRowView(session: session, accentL: accentL, accentM: accentM, appLang: appLang)
+                    }
+                    .buttonStyle(.plain)
                 }
             }
             .padding(.horizontal, 16)
