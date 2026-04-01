@@ -7,7 +7,7 @@ struct WatchHomeView: View {
 
     @State private var pulse: CGFloat = 1.0
 
-    private let navyBg = Color(red: 0.06, green: 0.06, blue: 0.20)
+    private let navyBg  = Color(red: 0.06, green: 0.06, blue: 0.20)
     private let accentL = Color(red: 0.72, green: 0.67, blue: 0.96)
     private let accentM = Color(red: 0.52, green: 0.42, blue: 0.88)
     private let gradTop = Color(red: 0.40, green: 0.28, blue: 0.78)
@@ -17,16 +17,18 @@ struct WatchHomeView: View {
         ZStack {
             navyBg.ignoresSafeArea()
 
-            VStack(spacing: 6) {
+            VStack(spacing: 0) {
+                Spacer()
+
                 // Moon icon with glow pulse
                 ZStack {
                     Circle()
                         .fill(accentM.opacity(0.18))
-                        .frame(width: 36, height: 36)
+                        .frame(width: 40, height: 40)
                         .scaleEffect(pulse)
 
                     Image(systemName: "moon.stars.fill")
-                        .font(.system(size: 18, weight: .medium, design: .rounded))
+                        .font(.system(size: 22, weight: .medium, design: .rounded))
                         .foregroundStyle(
                             LinearGradient(
                                 colors: [accentL, accentM],
@@ -35,12 +37,13 @@ struct WatchHomeView: View {
                             )
                         )
                 }
-                .padding(.top, 4)
+
+                Spacer()
 
                 // Minutes display
                 HStack(alignment: .firstTextBaseline, spacing: 2) {
                     Text("\(napMinutes)")
-                        .font(.system(size: 32, weight: .thin, design: .rounded))
+                        .font(.system(size: 36, weight: .thin, design: .rounded))
                         .monospacedDigit()
                         .foregroundStyle(.white)
                     Text("分")
@@ -54,7 +57,7 @@ struct WatchHomeView: View {
                         if napMinutes > 5 { napMinutes -= 5 }
                     } label: {
                         Image(systemName: "minus.circle.fill")
-                            .font(.system(size: 22))
+                            .font(.system(size: 26))
                             .foregroundStyle(accentM)
                     }
                     .buttonStyle(.plain)
@@ -63,11 +66,14 @@ struct WatchHomeView: View {
                         if napMinutes < 120 { napMinutes += 5 }
                     } label: {
                         Image(systemName: "plus.circle.fill")
-                            .font(.system(size: 22))
+                            .font(.system(size: 26))
                             .foregroundStyle(accentM)
                     }
                     .buttonStyle(.plain)
                 }
+                .padding(.top, 6)
+
+                Spacer()
 
                 // Primary button
                 Button(action: onStart) {
@@ -75,7 +81,7 @@ struct WatchHomeView: View {
                         .font(.system(size: 14, weight: .semibold, design: .rounded))
                         .foregroundStyle(.white)
                         .frame(maxWidth: .infinity)
-                        .padding(.vertical, 7)
+                        .padding(.vertical, 8)
                         .background(
                             LinearGradient(
                                 colors: [gradTop, gradBot],
@@ -94,7 +100,11 @@ struct WatchHomeView: View {
                         .foregroundStyle(accentL.opacity(0.55))
                 }
                 .buttonStyle(.plain)
+                .padding(.top, 4)
+
+                Spacer()
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding(.horizontal, 8)
         }
         .onAppear {

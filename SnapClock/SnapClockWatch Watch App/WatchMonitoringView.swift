@@ -8,7 +8,7 @@ struct WatchMonitoringView: View {
     @State private var pulse: CGFloat = 1.0
     @State private var orbOpacity: Double = 0.3
 
-    private let navyBg = Color(red: 0.06, green: 0.06, blue: 0.20)
+    private let navyBg  = Color(red: 0.06, green: 0.06, blue: 0.20)
     private let accentL = Color(red: 0.72, green: 0.67, blue: 0.96)
     private let accentM = Color(red: 0.52, green: 0.42, blue: 0.88)
     private let gradTop = Color(red: 0.40, green: 0.28, blue: 0.78)
@@ -24,30 +24,34 @@ struct WatchMonitoringView: View {
         ZStack {
             navyBg.ignoresSafeArea()
 
-            VStack(spacing: 6) {
+            VStack(spacing: 0) {
+                Spacer()
+
                 // Pulsing orb
                 ZStack {
                     Circle()
                         .fill(accentL.opacity(orbOpacity))
-                        .frame(width: 52, height: 52)
+                        .frame(width: 60, height: 60)
                         .scaleEffect(pulse)
 
                     Circle()
                         .fill(accentM.opacity(0.35))
-                        .frame(width: 32, height: 32)
+                        .frame(width: 38, height: 38)
                 }
-                .padding(.top, 2)
 
                 Text("检测入睡中")
-                    .font(.system(size: 14, weight: .semibold, design: .rounded))
+                    .font(.system(size: 15, weight: .semibold, design: .rounded))
                     .foregroundStyle(.white)
+                    .padding(.top, 8)
+
+                Spacer()
 
                 Text(waitingText)
-                    .font(.system(size: 11, weight: .regular, design: .rounded))
+                    .font(.system(size: 13, weight: .regular, design: .rounded))
                     .monospacedDigit()
                     .foregroundStyle(accentL.opacity(0.6))
 
-                Spacer(minLength: 4)
+                Spacer()
 
                 // Bottom buttons
                 HStack(spacing: 10) {
@@ -56,7 +60,7 @@ struct WatchMonitoringView: View {
                             .font(.system(size: 12, weight: .semibold, design: .rounded))
                             .foregroundStyle(.white)
                             .frame(maxWidth: .infinity)
-                            .padding(.vertical, 6)
+                            .padding(.vertical, 8)
                             .background(
                                 LinearGradient(
                                     colors: [gradTop, gradBot],
@@ -73,13 +77,14 @@ struct WatchMonitoringView: View {
                             .font(.system(size: 12, weight: .regular, design: .rounded))
                             .foregroundStyle(Color.red.opacity(0.85))
                             .frame(maxWidth: .infinity)
-                            .padding(.vertical, 6)
+                            .padding(.vertical, 8)
                             .background(Color.red.opacity(0.12))
                             .clipShape(Capsule())
                     }
                     .buttonStyle(.plain)
                 }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding(.horizontal, 8)
             .padding(.bottom, 6)
         }
